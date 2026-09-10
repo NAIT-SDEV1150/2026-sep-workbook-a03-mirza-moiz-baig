@@ -20,7 +20,7 @@ let roomName = 'Learning Commons';
 let guestCount = 18;
 
 report += `\nEvent: ${eventName}`; // syntax for variable names in the string is `${variable name}`
-report += `\nRoom: ${roomName}`;
+report += `\nRoom: ${roomName}`; // template literals
 report += `\nExpected guests: ${guestCount}`;
 console.log(report);
 
@@ -54,7 +54,25 @@ let finalGuestCount = signUpCount + extraGuestCount;
 report += '\n';
 report += `\nThe value ${signUpText} is of ${typeof signUpText}`; // typeof displays the data type.
 report += `\nThe value ${signUpCount} is of ${typeof signUpCount}`; 
+report += `\nFinal guest count: ${finalGuestCount}`;
 console.log(report);
+
+let donationText = '25.50';
+let donationAmount = parseFloat(donationText);
+report += '\n';
+report += `\n A donation entered as${donationText} becomes ${donationAmount}`;
+
+console.log(report);
+
+const numberExample = 7;
+const stringExample = '7';
+report += `\n 7 + '7' produces ${numberExample + stringExample}`;
+report += `\n 7 * '7' produces ${numberExample * stringExample}`;
+console.log(report);
+
+
+
+
 
 
 
