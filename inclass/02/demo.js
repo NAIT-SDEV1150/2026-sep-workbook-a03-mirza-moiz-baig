@@ -1,6 +1,4 @@
-// Mirza Moiz Baig - Sep 8, 2026
-
-console.log('Lesson -02 demo.js has loaded'); // semicolons mark the end of the line in javascript
+console.log('Lesson 02 demo.js has loaded');
 console.log('=============================');
 // console.log logs an output in the console
 /*
