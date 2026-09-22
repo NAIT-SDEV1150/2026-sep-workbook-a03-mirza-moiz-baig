@@ -68,3 +68,25 @@ let pickupDetails = {
 };
 console.log(pickupDetails["customer name"]);
 
+cart = [
+    {
+      name : 'bread',
+      price: 3.49,
+      quantity: 1  
+    },
+    {
+        name:'oat milk',
+        price: 7,
+        quantity: 2
+    },
+    {
+        name: 'frozen peas',
+        price: 5,
+        quantity: 3
+    }
+]; 
+console.log(cart[0].price);
+console.log(cart[1].quantity);
+console.log(cart[1].name);
+console.log(`cart[cart.length] gives ${cart[cart.length - 1]}`); // cart[3]
+// console.log(`cart[cart.length].price gives ${cart[cart.length].price}`); // the referred index does not exist
