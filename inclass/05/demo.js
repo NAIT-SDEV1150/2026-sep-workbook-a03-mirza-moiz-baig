@@ -30,7 +30,7 @@ function formatMoney(amount) {
     return `$${amount.toFixed(2)}`;
 }
 displayHeading('field trip demo');
-let studentCount = 75;
+let studentCount = 75; //global scope
 let seatsPerBus = 5;
 let mealPrice = 9.75;
 let admissionPrice = 14.5;
@@ -47,9 +47,9 @@ console.log(formattedMoney);
 
 // Function Expressions 
 
-const calculateAdmissionCost = function(studentCount, admissionPrice) {
+const calculateAdmissionCost = function(studentCount, admissionPrice) { // studentCount is locally scoped
     return studentCount * admissionPrice;
-};
+}; // this function is anonymous
 displayHeading('Function Expression');
 let admissionCost = calculateAdmissionCost(75,15);
 
@@ -64,6 +64,7 @@ const calculateAmount = function(firstAmount, secondAmount, operation) {
 
 let addAmounts = function(firstAmount, secondAmount) {
     return firstAmount + secondAmount;
+    
 };
 const subtractAmounts = function(firstAmount,secondAmount) {
     return firstAmount - secondAmount;
@@ -75,6 +76,36 @@ let tripSubtotal = calculateAmount(mealCost, admissionCost, addAmounts);
 console.log(tripSubtotal);
 let remainingDeposit = calculateAmount(tripSubtotal, depositPaid, subtractAmounts);
 console.log(remainingDeposit);
+
+// returning a function from a function
+const buildNumberLogger = function() {
+    let currentStep = 1;
+    return function(text) {
+        console.log(`${currentStep}) ${text}`);
+        currentStep++; //increment value by 1
+    };
+};
+let logStep = buildNumberLogger();
+
+logStep(`Confirm ${studentCount} students`);
+logStep(`Reserve ${busCount} seats`);
+logStep();
+
+let morningChecklist = buildNumberLogger();
+morningChecklist(`Take attendance`);
+
+export {
+    buildNumberLogger,
+    calculateAmount,
+    calculateMealCost,
+    calculateBusCount,
+    calculateAdmissionCost,
+    formatMoney,
+    displayHeading
+};
+
+
+
 
 
 
