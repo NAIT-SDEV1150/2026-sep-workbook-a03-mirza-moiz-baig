@@ -1,3 +1,4 @@
+// import { displayHeading } from "../05/demo";
 displayHeading('Lesson 06 demo.js has loaded', "=");
 console.log();
 

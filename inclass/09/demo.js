@@ -5,3 +5,24 @@
 //       the .js extension.
 import { displayHeading } from './display.js';
 import { add, about } from './utils.js';
+import { Shape, supportedShapes } from './shapes.js';
+// import { info } from './utils.js'; 
+// always resolve all the imports at the start of the script.
+
+displayHeading('Lesson 09 demo.js has loaded','=');
+console.log('The code is spread across multiple files');
+console.log();
+
+console.log(about.name);
+console.log(add(2,3));
+console.log();
+
+// console.log(info) will not work becuase its private to about module
+
+// export only whats necessary
+
+console.log('Shape module');
+console.log(`Supported shapes: ${supportedShapes.join(', ')}`);
+// .join() converts array to a string separated with whatever is inside braces
+
+
