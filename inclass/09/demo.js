@@ -25,4 +25,16 @@ console.log('Shape module');
 console.log(`Supported shapes: ${supportedShapes.join(', ')}`);
 // .join() converts array to a string separated with whatever is inside braces
 
+let circle = new Shape('circle');
+circle.assignDimensions({ radius: 5});
+
+console.log(circle.area().toFixed(2));
+
+let square = new Shape('square');
+square.assignDimensions({ length: 8});
+console.log(square.area());
+
+let triangle = new Shape('triangle');
+triangle.assignDimensions({base: 10, height: 6})
+console.log(triangle.area());
 

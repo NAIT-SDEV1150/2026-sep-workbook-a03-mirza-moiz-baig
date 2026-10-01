@@ -8,7 +8,7 @@ export const supportedShapes = ['circle', 'square', 'triangle'];
  * @param {string} type The kind of shape to create 
  */
 export function Shape(type) {
-    this.type = type;
+    this.type = type.toLowerCase();
     /**
      * Calculates the area of the shape
      * @returns {number | undefined} the area, or undefined when dimensions are missing
@@ -16,7 +16,13 @@ export function Shape(type) {
     this.area = function() {
         let result = undefined;
         if(this.dimensions) {
-            // TODO: Base the calculations on the dimensions
+            if (this.type === 'circle') {
+                result = Math.PI * this.dimensions.radius ** 2;
+            } else if (this.type === 'square'){
+                result = this.dimensions.length ** 2;
+            } else if (this.type === 'triangle') {
+                result = (this.dimensions.base * this.dimensions.height)/ 2;
+            }
         }
         return result;
     }
@@ -31,6 +37,29 @@ export function Shape(type) {
         // - `radius` for circles
         // - `length` for squares
         // - `base` and `height` for triangles 
-        // TODO: Process the inputs; invalid inputs will result in an undefined set of dimensions and an error message.
+        if (!supportedShapes.includes(this.type)) {
+            this.dimensions = undefined;
+            console.error(`${this.type} is not a supported shape`);
+            return;
+        }
+
+        if (this.type === 'circle' && typeof dimensions.radius === 'number'){
+            this.dimensions = {
+                radius: dimensions.radius
+            };
+        } else if (this.type === 'square' && typeof dimensions.length === 'number') {
+            this.dimensions = {
+                length: dimensions.length
+            }
+        } else if (this.type === 'triangle' && typeof dimensions.base === 'number' && typeof dimensions.height === 'number') {
+            this.dimensions = {
+                base: dimensions.base,
+                height: dimensions.height
+            };
+        } else {
+            this.dimensions = undefined;
+            console.error(`${this.type} is not a supported shape`);
+        }
+        
     }
 }
