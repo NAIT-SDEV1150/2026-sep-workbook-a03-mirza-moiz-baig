@@ -92,7 +92,16 @@ completionCaption.textContent = 'Image element created and configured from JavaS
 completionFigure.append(completionImage, completionCaption); // <figure> //  <img  src = './img/undraw_completed_vjc6.svg' alt = 'A completed task checklist' width = 220> </img> <figcaption>'Image element created and configured from JavaScript.' </figcaption> </figure>
 mainContent.append(completionFigure);
 
-//
+// replace and remove elements
+const replacementItem = document.createElement('li');
+replacementItem.textContent = 'DOM nodes can be replaced';
+firstlanguage.replaceWith(replacementItem);
+// remove an item
+ruleAfterList.remove();
+
+// creating a document fragment
+
+const fragment = document.createDocumentFragment();
 
 
 
