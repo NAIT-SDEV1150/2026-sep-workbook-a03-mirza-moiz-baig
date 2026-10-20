@@ -9,7 +9,7 @@ console.log('Lesson 15 main.js loaded');
 // DOM tree consists of nodes
 // two kinds of node:
 // 1) element nodes
-// 2) text nodes
+// 2) text nodes(whitespaces included as well.)
 
 const pageHeading = document.querySelector('h1'); // selecting dom node by tagname
 console.log(pageHeading);
@@ -62,6 +62,23 @@ const statusMessage = document.createElement('p'); // <p></p>
 statusMessage.textContent = 'created with document.createElement() and .textContent'; // <p>'created with document.createElement() and .textContent'</p>
 mainContent.append(statusMessage); // this adds the newly created tag to the end of the main document.
 
+const reminder = document.createElement('p');
+const reminderLabel = document.createElement('strong');
+reminderLabel.textContent = 'Reminder:';
+const reminderText = document.createTextNode('created text nodes can sit besides element nodes');
+console.log(reminder, reminderLabel, reminderText);
+
+reminder.append(reminderLabel);
+reminder.appendChild(reminderText);
+console.log(reminder);
+// .append and .appendchild both can add nodes to the DOM
+// .append() can accept more than just DOM nodes e.g. text strings, can add multiple items at once
+// .appendChild() can not do the above, use it for adding a single node only.
+
+// appendChild() specifically appends one existing Node.
+console.log(reminder);
+
+mainContent.append(reminder); // It is only at this point that the <p> becomes part of the DOM
 
 
 
