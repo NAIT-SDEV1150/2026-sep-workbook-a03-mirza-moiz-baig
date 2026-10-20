@@ -54,5 +54,15 @@ console.log(ruleAfterList);
 // The firstElementChild and nextElementSibling properties skip text nodes.
 pageHeading.textContent = 'DOM API Practice';
 paragraphBeforeList.textContent = 'JavaScript can select, navigate, and modify the live DOM.';
+// creating a tag with textcontent
+
+const statusMessage = document.createElement('p'); // <p></p>
+// the tag is in void space right now. 
+// This p tag as of now is not the part of DOM tree/webpage.
+statusMessage.textContent = 'created with document.createElement() and .textContent'; // <p>'created with document.createElement() and .textContent'</p>
+mainContent.append(statusMessage); // this adds the newly created tag to the end of the main document.
+
+
+
 
 
