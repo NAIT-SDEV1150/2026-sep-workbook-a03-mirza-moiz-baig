@@ -80,6 +80,21 @@ console.log(reminder);
 
 mainContent.append(reminder); // It is only at this point that the <p> becomes part of the DOM
 
+// create and insert an image
+const completionFigure = document.createElement('figure'); // <figure> </figure>
+const completionImage = document.createElement('img');// <img> </img>
+const completionCaption = document.createElement('figcaption');// <figcaption </figcaption>
+
+completionImage.src = './img/undraw_completed_vjc6.svg';//  <img  src = './img/undraw_completed_vjc6.svg' > </img>
+completionImage.alt = 'A completed task checklist';//  <img  src = './img/undraw_completed_vjc6.svg' alt = 'A completed task checklist'> </img>
+completionImage.width = '220';//  <img  src = './img/undraw_completed_vjc6.svg' alt = 'A completed task checklist' width = 220> </img>
+completionCaption.textContent = 'Image element created and configured from JavaScript.'; // <figcaption>'Image element created and configured from JavaScript.' </figcaption>
+completionFigure.append(completionImage, completionCaption); // <figure> //  <img  src = './img/undraw_completed_vjc6.svg' alt = 'A completed task checklist' width = 220> </img> <figcaption>'Image element created and configured from JavaScript.' </figcaption> </figure>
+mainContent.append(completionFigure);
+
+//
+
+
 
 
 
