@@ -37,3 +37,22 @@ const languageList = mainContent.querySelector('ul');
 const languageItems = languageList.querySelectorAll('li');
 console.log(languageList);
 console.log(languageItems);
+
+// Navigation through the dom tree through dom relationships.
+const listParent = languageList.parentElement;
+console.log(listParent);
+const firstlanguage = languageList.firstElementChild;
+const lastLanguage = languageList.lastElementChild;
+console.log(firstlanguage);
+console.log(lastLanguage);
+// Avoid using firstchild because that can select whitespaces or textnodes too.
+// prefer firstelementchild because that select the first child that is an actual html element.
+const paragraphBeforeList = languageList.previousElementSibling;
+console.log(paragraphBeforeList);
+const ruleAfterList = languageList.nextElementSibling;
+console.log(ruleAfterList);
+// The firstElementChild and nextElementSibling properties skip text nodes.
+pageHeading.textContent = 'DOM API Practice';
+paragraphBeforeList.textContent = 'JavaScript can select, navigate, and modify the live DOM.';
+
+
