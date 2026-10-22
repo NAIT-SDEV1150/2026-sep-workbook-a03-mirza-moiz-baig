@@ -105,7 +105,14 @@ export {
 };
 
 
-
+export {
+  buildNumberedLogger,
+  calculateAmount,
+  calculateMealCost,
+  calculateBusCount,
+  calculateAdmissionCost,
+  formatMoney
+}
 
 
 

@@ -90,3 +90,4 @@ console.log(cart[1].quantity);
 console.log(cart[1].name);
 console.log(`cart[cart.length] gives ${cart[cart.length - 1]}`); // cart[3]
 // console.log(`cart[cart.length].price gives ${cart[cart.length].price}`); // the referred index does not exist
+export { cart, pickupItems, itemPrices, itemIsFrozen }

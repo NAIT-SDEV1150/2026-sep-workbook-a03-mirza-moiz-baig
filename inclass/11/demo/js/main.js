@@ -50,10 +50,10 @@ const asideImg = document.querySelector('aside img'); // selects only the img th
 asideImg.setAttribute('width', '180');
 asideImg.setAttribute('alt', 'A person building a website');
 // setAttribute changes or assigns a value to the attribute
-
+// img <width = '180'>
 asideImg.src = './img/undraw_code-review_jdgp.svg';
 
-languageList.style.borderLeft = '0.4rem solid var(--pico-primary)';
+languageList.style.borderLeft ='0.4rem solid var(--pico-primary)';
 languageList.style.paddingLeft = '1 rem';
 // applying inline styles through javascript
 

@@ -102,6 +102,15 @@ ruleAfterList.remove();
 // creating a document fragment
 
 const fragment = document.createDocumentFragment();
+// a temporary container for DOM nodes.
+const newTopics = ['Select', 'Navigate', 'Create', 'Insert'];
+for (let topic of newTopics) {
+    const topicItem = document.createElement('li');// <li> </li>
+    topicItem.textContent = `Practice: ${topic}`;// <li> Practice: ${topic}</li>
+    fragment.append(topicItem);
+};
+languageList.append(fragment);
+// fragment is a temporary container, it sends its children into the languagelist
 
 
 
