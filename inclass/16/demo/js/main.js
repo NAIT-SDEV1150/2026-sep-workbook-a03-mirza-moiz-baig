@@ -3,8 +3,35 @@ const result = document.querySelector('#result');
 
 function serializeForm(formEl) {
   // TODO: Access the form controls from formEl.elements.
-  // TODO: Collect the checked topic checkboxes into an array.
-  // TODO: Return an object with the trimmed form values.
+  const fullName = formEl.elements.fullName.value;
+  const email = formEl.elements.email.value;
+  const bio = formEl.elements.bio.value;
+  const plan = formEl.elements.plan.value;// selecting the value of a radio button
+  const topics = formEl.querySelectorAll('input[name="topics"]:checked')// this returns a nodelist
+  const topicsArray = Array.from(topics)// converts nodelist to an array
+  const topicValues =  topicsArray.map((checkbox) => {
+    checkbox.value;
+  });
+  // const {fullName, email, bio} = formEl.elements; destructures the object fullName = formEl.elements.fullName
+  //formEl.elements returns an HTMLformControlsCollection(like an array)
+  return {
+    fullName: fullName.trim(), // or fullname.value.trim()
+    // .trim() removes the leading and trailing whitespaces
+    email: email.trim(),
+    plan: plan,
+    bio: bio,
+    topics: topicValues,
+    submittedAt: new Date().toLocaleString()
+  }
+}
+function formatSubmission(data) {
+  return `Submission received:
+    - Name: ${data.fullName || '(none)'}
+    - Email: ${data.email || '(none)'}
+    - Skill: ${data.plan || '(none)'}
+    - Strengths: ${data.topics.length ? data.topics.join(', ') : '(none)'}
+    - Bio: ${data.bio || '(none)'}
+    - Time: ${data.submittedAt}`;
 }
 
 function validateField(field) {
@@ -25,12 +52,11 @@ form.addEventListener('input', (event) => {
 });
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  // TODO: Validate the form before processing the submission.
-  // TODO: If the form is valid, serialize it and echo the result.
+  event.preventDefault();// never reload the webpage
+  const data = serializeForm(form);// holds an object
+  result.textContent = formatSubmission(data);
 });
 
 form.addEventListener('reset', () => {
-  // TODO: Clear the output area and custom validation messages.
+  result.textContent = 'Awaiting submission...';
 });
