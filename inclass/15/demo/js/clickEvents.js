@@ -15,7 +15,7 @@ export function setupClickEvents() {
     btnToggle.textContent = isHighlighted ? 'Highlight is On' : 'highlight is off';// ternary operator short if statements.
   })
   btnMessage.addEventListener('click', function () {
-    const timeString = new Date().toLocaleTimeString();
+    const timeString = new Date().toLocaleTimeString();// displays the time
     message.textContent = `Message updated at ${timeString}`;
   })
 };
