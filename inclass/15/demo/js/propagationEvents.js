@@ -36,4 +36,7 @@ export function setupPropagationEvents() {
   middleBox.addEventListener('click', function() {
     addLog('Capture: middle box');
   }, true);
+  // BUBBLING: child --> parent
+  // CAPTURING: parent --> child
+  // e.stopPropagation() will stop bubbling
 }
