@@ -51,4 +51,13 @@ PATCH: edits the data
 DELETE: deletes the data
 
 
+### HTTP Status Codes
+# Code	Meaning	
+# 200	OK	Successful GET, PUT, PATCH, or DELETE
+# 201	Created	Successful POST
+# 400	Bad Request	Broken JSON body
+# 404	Not Found	Resource or id does not exist
+# 500	Internal Server Error	JSON Server problem
+
+
 

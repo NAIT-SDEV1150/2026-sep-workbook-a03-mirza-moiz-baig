@@ -17,7 +17,7 @@
       "name": "Mercury",
       "category": "planet",
       "image": "mercury.jpg",
-      "description": "The smallest planet and the closest planet to the Sun.",
+      "description": "The smallest planet, the closest planet to the Sun, and the fastest planet in its orbit.",
       "nameOrigin": "Named for the swift Roman messenger god.",
       "mass": "3.301 x 10^23 kg",
       "radius": "2,440 km",
@@ -25,15 +25,15 @@
       "discoveryDate": "Known since antiquity"
     },
     {
-      "id": "3",
-      "name": "Venus",
+      "id": "4",
+      "name": "Earth",
       "category": "planet",
-      "image": "venus.jpg",
-      "description": "A rocky planet with a thick atmosphere and extremely hot surface.",
-      "nameOrigin": "Named for the Roman goddess of love and beauty.",
-      "mass": "4.867 x 10^24 kg",
-      "radius": "6,052 km",
-      "orbitalPeriod": "224.7 Earth days",
+      "image": "earth.jpg",
+      "description": "Our home planet and the only known world with life.",
+      "nameOrigin": "Comes from Old English and Germanic words for ground or soil.",
+      "mass": "5.972 x 10^24 kg",
+      "radius": "6,371 km",
+      "orbitalPeriod": "365.25 Earth days",
       "discoveryDate": "Known since antiquity"
     },
     {
@@ -155,6 +155,19 @@
       "radius": "1,163 km",
       "orbitalPeriod": "557 Earth years",
       "discoveryDate": "January 5, 2005"
+    },
+    {
+      "name": "Proxima Centauri",
+      "category": "star",
+      "image": "sun.jpg",
+      "description": "The closest known star to the Sun.",
+      "nameOrigin": "The name means nearest star of Centaurus.",
+      "mass": "About 2.43 x 10^29 kg",
+      "radius": "107,000 km",
+      "orbitalPeriod": "Not applicable",
+      "discoveryDate": "1915",
+      "id": "qLqbabeRkiE"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

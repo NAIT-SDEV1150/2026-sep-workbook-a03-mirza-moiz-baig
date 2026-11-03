@@ -5,20 +5,56 @@ GET http://localhost:3000/bodies
 Accept: application/json
 
 ### GET one body
-# TODO: Send a GET request for body 1.
+
+GET http://localhost:3000/bodies?name:eq=Earth
+Accept: application/json
+
+### GET with id
+
+GET http://localhost:3000/bodies/4
+Accept: application/json
+
+### GET Earth's data
+GET http://localhost:3000/bodies?name:eq=Proxima%20Centauri
+Accept: application/json
+
+### GET earth's img
+
+GET http://localhost:3000/earth.jpg
+Accept: application/json
 
 ### POST new body
-# TODO: Send a POST request to http://localhost:3000/bodies.
-# TODO: Include Content-Type: application/json.
-# TODO: Include a JSON body with name, category, image, description, nameOrigin, mass, radius, orbitalPeriod, and discoveryDate.
+POST http://localhost:3000/bodies
+Content-Type: application/json
+
+{
+  "name": "Proxima Centauri",
+  "category": "star",
+  "image": "sun.jpg",
+  "description": "The closest known star to the Sun.",
+  "nameOrigin": "The name means nearest star of Centaurus.",
+  "mass": "About 2.43 x 10^29 kg",
+  "radius": "107,000 km",
+  "orbitalPeriod": "Not applicable",
+  "discoveryDate": "1915"
+}
+
 
 ### PUT replace a body
 # TODO: Send a PUT request for body 1.
 # TODO: Include a complete replacement body object.
 
 ### PATCH update a body
-# TODO: Send a PATCH request for body 2.
-# TODO: Include only the field or fields you want to change.
+PATCH http://localhost:3000/bodies/2
+Content-Type: application/json
+
+{
+  "description": "The smallest planet, the closest planet to the Sun, and the fastest planet in its orbit."
+}
+
+
 
 ### DELETE a body
 # TODO: Send a DELETE request for body 3.
+
+DELETE http://localhost:3000/bodies/3
