@@ -14,23 +14,48 @@ function showStatus(message, type = 'info') {
 
 function renderBodies(bodies) {
   // TODO: Clear the current list.
+  bodyList.replaceChildren(); // removes any existing list items.
+  bodies.forEach((body) => {
+    const li = document.createElement('li');
+    const image = document.createElement('img');
+    image.src = `http://localhost:3000/${body.image}`;
+    image.alt = body.name;
+    const text = document.createElement('span');
+    text.textContent = `${body.name} - ${body.category} - ${body.orbitalPeriod}`;
+    li.append(image, text);
+    bodyList.append(li);
+  })
   // TODO: Create and append one <li> for each body.
   // TODO: Include the thumbnail image for each body.
 }
 
 function loadHandler() {
-  // TODO: Show a loading message.
-  // TODO: Call fetchJsonData(endpoint).
-  // TODO: Render bodies on success.
-  // TODO: Show a user-facing error on failure.
+  bodyList.innerHTML = `<li>Loading bodies....</li>`;
+  fetchJsonData(endpoint)
+  .then((bodies) => {
+    renderBodies(bodies);
+    showStatus(`Loaded ${bodies.length} bodies, 'success'`);
+  })
+  .catch((error)=> {
+    bodyList.replaceChildren();
+    showStatus(`Error: ${error.message}, 'error'`);
+  })
 }
 
 async function submitHandler(event) {
-  event.preventDefault();
+  event.preventDefault();// never reloads the webpage
 
-  // TODO: Collect form values with FormData.
-  // TODO: POST the body, reset the form, and reload the list.
-  // TODO: Show a user-facing error on failure.
+  const form = new FormData(event.target);
+  const body = Object.fromEntries(form.entries());
+  try {
+    await postData(endpoint, body);// await is used because we want to handle the delayed response.
+    event.target.reset();
+    showStatus(`Body added, 'success'`);
+    loadHandler();
+  }
+  catch(error) {
+    showStatus(`Error: ${error.message}, 'error'`);
+  }
 }
 
 loadButton.addEventListener('click', loadHandler);

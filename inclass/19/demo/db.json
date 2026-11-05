@@ -167,6 +167,23 @@
       "radius": "1,163 km",
       "orbitalPeriod": "557 Earth years",
       "discoveryDate": "January 5, 2005"
+    },
+    {
+      "name": "sun",
+      "category": "planet",
+      "image": "sun.jpg",
+      "description": "asdfsdf",
+      "orbitalPeriod": "sf",
+      "id": "Quly1v0NgIk"
+    },
+    {
+      "name": "Mirza Moiz Baig",
+      "category": "planet",
+      "image": "sun.jpg",
+      "description": "vsdv",
+      "orbitalPeriod": "vdsv",
+      "id": "vOUqc4fzlkI"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
