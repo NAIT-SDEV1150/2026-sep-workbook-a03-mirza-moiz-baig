@@ -13,12 +13,11 @@ function handleResponse(response) {
     throw new Error(message);
   }
   return response.json() // converts the response to json.
-
 }
 
 export async function postData(endpoint, payload) {
   // you can only use await with async
-  const response = fetch(endpoint, {
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',

@@ -183,6 +183,14 @@
       "description": "vsdv",
       "orbitalPeriod": "vdsv",
       "id": "vOUqc4fzlkI"
+    },
+    {
+      "name": "sun",
+      "category": "dwarf planet",
+      "image": "sun.jpg",
+      "description": "bffxbf",
+      "orbitalPeriod": "sf",
+      "id": "42KjF-IisVc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
