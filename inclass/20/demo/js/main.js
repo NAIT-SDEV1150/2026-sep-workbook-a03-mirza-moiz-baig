@@ -33,9 +33,18 @@ function clearJacketObjectUrl() {
 }
 
 function synthesizeCatalog(books, authors, reviews) {
-  // TODO: Join books to authors with authorId.
-  // TODO: Count reviews by bookId.
-  // TODO: Return display objects for the book list.
+  return books.map((book) => {
+    const author = authors.find((item) => {
+      item.id === book.authorId;
+    });
+    const reviewCount = reviews.filter((review) => { review.bookId === Number(book.id)}).length;
+    return {
+      ...book,
+      authorName: author?.name ?? 'Unknown Author',
+      reviewCount,
+    };// ?. optional chaining
+    // author?.name check if the author exists before accessing the name 
+  })
 }
 
 function renderCatalog(catalog) {
@@ -45,10 +54,31 @@ function renderCatalog(catalog) {
 }
 
 async function loadCatalog() {
-  // TODO: Load books, authors, and reviews with Promise.all().
-  // TODO: Synthesize the API responses into one catalog list.
-  // TODO: Render the catalog and select the first book.
-  // TODO: Show loading, success, empty, and error states.
+  showStatus(catalogStatus, 'Loading catalog ...');
+  try {
+    const [books, authors, reviews] = Promise.all([
+      fetchJson(buildEndpoint('/books')),
+      fetchJson(buildEndpoint('/authors')),
+      fetchJson(buildEndpoint('/reviews')),
+    ]);
+    // Promise.all runs all 3 concurrently
+    /**
+     * const books = await fetchJson(buildEndpoint('/books'));
+     const authors = await fetchJson(buildEndpoint('/authors'));
+     const reviews = await fetchJson(buildEndpoint('/reviews'));
+     */
+    catalog = synthesizeCatalog(books, authors, reviews);
+    if (catalog.length === 0) {
+      renderCatalog(catalog);
+      showStatus(catalogStatus, 'The catalog is empty.');
+      return;
+    }
+    
+  } catch (error) {
+    catalog = []
+    renderCatalog(catalog);
+    showStatus(catalogStatus, `Could not load the catalog: ${error.message}`, 'error');
+  }
 }
 
 function renderBookDetails(book, author, summaryHtml, jacketUrl) {
