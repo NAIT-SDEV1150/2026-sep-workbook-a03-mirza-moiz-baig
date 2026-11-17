@@ -114,3 +114,13 @@ loadButton.addEventListener('click', loadCatalog);
 addReviewForm.addEventListener('submit', addReview);
 
 loadCatalog();
+
+
+/*
+The browser allows JavaScript from localhost:5173 
+to read a response from localhost:3000 only when the backend response
+includes the right CORS headers. JSON Server’s API routes include those
+headers, but in this version static files are served before JSON Server 
+applies its CORS middleware. That means a direct REST Client request for
+a jacket image can work, 
+while a browser fetch() for the same SVG can still fail with a CORS error.*/
