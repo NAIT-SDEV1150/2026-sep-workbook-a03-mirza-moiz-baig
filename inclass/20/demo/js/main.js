@@ -73,9 +73,9 @@ async function loadCatalog() {
       showStatus(catalogStatus, 'The catalog is empty.');
       return;
     }
-    
+
   } catch (error) {
-    catalog = []
+    let catalog = []
     renderCatalog(catalog);
     showStatus(catalogStatus, `Could not load the catalog: ${error.message}`, 'error');
   }
