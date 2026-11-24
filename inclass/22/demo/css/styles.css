@@ -65,3 +65,6 @@ user-card {
   --user-card-accent: var(--accent);
 }
 
+user-card::part(avatar) {
+  outline: 3px solid color-mix(in srgb, var(--accent), white 40%);
+}

@@ -78,6 +78,7 @@ class UserCard extends HTMLElement {
     }
   }
 }
+
 customElements.define('user-card', UserCard);// this registers the element with the webpage. 
 
 
